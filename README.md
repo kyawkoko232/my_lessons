@@ -1,16 +1,309 @@
-# my_lessons
+# Basic App
 
-A new Flutter project.
+### Basic Scene
+အကုန်လုံးက widget တွေဘဲ 
+စစချင်းမှာ widget တွေခွဲမရေးဘဲ Scaffold ထဲထည့်ရေးလို့ရတယ်။ theme မှာ AppBar Theme ထည့်ပေးမှရမယ်။အရောင်က Scffold ထဲက 
+```dart
+import 'package:flutter/material.dart';
 
-## Getting Started
+void main() {
+  runApp(const MyApp());
+}
 
-This project is a starting point for a Flutter application.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-A few resources to get you started if this is your first Flutter project:
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.amber,
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Flutter Basic"),
+        ),
+        body: const Center(
+          child: Text("Hello World"),
+        ),
+      ),
+    );
+  }
+}
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+<br>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="text-align:center;">
+  <img src="media/17082755981013/Screenshot_1708279601.png" alt="Screenshot" width="200">
+</div>
+<br>
+
+---
+
+
+
+
+main function ထဲမှာ runApp function ခေါ်သုံးတယ်။
+```dart
+void main() {
+  runApp(const MyApp());
+}
+```
+
+
+
+MyApp က statless Widget Class အောက်မှာသုံးထားတယ်။
+
+
+lib folder for code
+test folder for testing codes
+
+yaml ဖိုင်ထဲမှာ avoid_print ကို true false လုပ်ပြီး error ထိုးတာပိတ်ထားလို့ရတယ်။
+pub spec yaml ထဲမှာ project နဲ့ဆိုင်တာတွေထည့်လို့ရတယ်။
+
+`Scaffold` widget ထဲမှာ
+* AppBar, Drawer, BottomNavigationBar, Floating Action Button, Background Color အစရှိသဖြင့်အကုန်ထည့်လို့ရတယ်။
+* `debugShowCheckedModeBanner : false,` ဖျောက်လို့လည်းရမယ်။ Debug ဘားကို
+
+```dart
+ appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Flutter Basic"),
+        ),
+```
+အကုန်လုံးကိုပေါင်းပြီးတော့ Widget Tree လို့ခေါ်တယ်။
+MyApp Widget ထဲ MaterialApp>Scaffold>appBar
+
+
+* Widget တိုင်းမှာ build function ရှိတယ်။ 
+* main component of widget
+* အောက် widget သေးသေးလေးအကုန်စုပြီး MyApp() ဆိုတဲ့ widget ဖြစ်လာတာ။
+
+### VsCode Snippet
+
+|        | About            | Snippet |
+|--------|------------------|---------|
+| stless | stateless Widget |         |
+| stful  | stateful Widget  |         |
+
+- class တစ်ခုဆောက်ရင် constructor ပါမယ်။
+- widget တွေတည်ဆောက်ဖို့ build method ပါမယ်။
+- Container Widget ကနေစမယ်။
+example
+```dart
+class CustomButtom extends StatelessWidget {
+  const CustomButtom({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+```
+
+1. Widget တွေကိုလည်း Warp လုပ်ရင် vscode မီးလုံးပုံလေးကနေဘဲလုပ်မယ်။
+2. အပြင်ကို Widget အနေနဲ့ပြန်ခွဲလုပ်ချင်ရင် Extract လုပ်လို့ရတယ်။
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.amber,
+        ),
+      ),
+      home: const TitleApp(),
+    );
+  }
+}
+
+class TitleApp extends StatelessWidget {
+  const TitleApp({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Flutter Basic"),
+      ),
+      body: const Center(
+        child: Text("Hello World"),
+      ),  
+    );
+  }
+}
+```
+
+<br> 
+
+### Scaffold and Material App Widget
+
+#### MaterialApp
+* material design/theme ကိုအသုံးပြုထား။
+* ဘာသာစကားတွေကိုသတ်မှတ်ပေးထားတယ်။
+* navigation အတွက် မတူညီတဲ့ routes တွေကိုသတ်မှတ်ပေးထားတယ်။
+Theme ပြောင်းမယ်ဆိုရင် 
+```dart
+ return MaterialApp(
+      title: 'Flutter',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.amber,
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Flutter Basic"),
+        ),
+        body: const Center(
+          child: Text("Hello World"),
+        ),  
+      ),
+    );
+  }
+  ```
+  
+  ThemeDataထဲမှာ စိတ်ကြိုက် overwriter လုပ်လို့ရတယ်။ Material အစား
+  localize တို့ root တို့ထည့်လို့ရတယ်။
+  MaterialApp အောက်မှာဘဲ
+  `debugShowCheckedModeBanner : false,`
+  
+  
+  [Material App Class](https://api.flutter.dev/flutter/material/MaterialApp-class.html) 
+
+
+#### Scaffold
+* Screen အတွက်လိုအပ်တဲ့ basic layout ကိုသတ်မှတ်ပေးတယ်။
+* Background ကာလာသတ်မှတ်ပေးလို့ရတယ်၊
+*  AppBar,Drawer, BottomNavigationBar, FloatingActionButton(FAB) အစရှိသဖြင့်သတ်မှတ်ပေးလို့ရတယ်။
+
+
+Scaffold အောက်လိုချင်တဲ့ page တိုင်းအတွက် define လုပ်လို့ရတယ်။
+Floating Action Button ဆိုပြီး debug console လေးဖော်မယ်။
+```dart
+  home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Flutter Basic"),
+        ),
+       
+        body: const Center(
+          child: Text("Hello World"),
+        ),
+        
+        floatingActionButton: FloatingActionButton(
+        onPressed: () => debugPrint('clicked'),
+        child: const Icon(Icons.ac_unit_rounded),
+        ),
+        
+      ),
+```
+
+
+### Text
+`Text()`  ထဲမှာဘဲလိုတာတွေရေးမယ်။ style ထဲမှာTextStyle widget ခေါ်ပြီးလိုတာတွေထပ်ထပ်ရေးနေမယ်။ color,fontSize, fontStyle အစရှိသဖြင့်
+```dart
+  child: Text(
+            "Hello World",
+            style: TextStyle(
+                color: Colors.red, 
+                fontSize: 20, 
+                fontStyle: FontStyle.italic),
+          )
+```
+
+Text ကိုစာသားပြည့်လို့အောက်ဆင်းချင်ရင် Flexible နဲ့ warp အုပ်လို့ရတယ်။ 
+```dart
+const Flexible(
+child: Text('Max row'),
+   ), 
+```
+နောက်ထပ် parameter တွေ
+```dart
+Text( 
+'Lorem Ipsum is simply dummy text of the printing and ', 
+// maxLines: 1, 
+overflow: TextOverflow.ellipsis, 
+), 
+```
+
+### Container
+
+
+* Center က ဘယ် widget  ပေါ်မဆို Parent warp လုပ်ထားလို့ရတယ်။ အခြား Center လုပ်လို့ရတဲ့ widget တွေလည်းရှိတယ်။ Center Widget ကို ဘယ် widget နဲ့မဆို wrap လုပ်လို့ရတယ်။ 
+* Text widget  မှာ paramter တွေထပ်ထည့်လို့ရတယ်။ 
+* A widget that centers its child within itself
+Container Widget က dynamic ဖြစ်လို့ const နဲ့ပေးလို့မရဘူး height ပေးရင်သိသာတယ်။  width နဲ့ height အပြည့်ယူပြီး boxDecoration နဲ့ အပြင်အဆင်ပြောင်းလို့ရတယ်။ boxDecoration သုံးလိုက်ရင် color သုံးလို့မရတော့ဘူး။ 
+* Container က width အပြည့်ယူတယ်။အောက်ကဥပမာဆိုရင် Text ကိုအလယ်ပေးလိုက်ရင် width အပြည့်ယူသွားတယ်။ width ပေးပြီးပြန်ကန့်သတ်လို့ရတယ်။ 
+* Container ထဲမှာ Container child ပေးရင် child **Container က parent Container ကိုအပြည့်ယူတယ်။** ထိန်းရင် Cetner widget wrap အုပ်ပြီးပေးလို့ရတယ်။ 
+* Container ကို appearence ပြင်ချင်ရင် `boxDecoration` နဲ့ပြင်လို့ရတယ်။
+```dart 
+ body: Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration:  BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const Center(
+              child: Text(
+                "Hello World",
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic),
+              ),
+            ),
+          ),
+        ),
+```
+
+<br>
+<div style="text-align:center;">
+  <img src="media/17082755981013/Screenshot_1708282120.png" alt="Screenshot" width="200">
+</div>
+<br>
+
+---
+
+## Column and Padding, SizedBox
+### Column
+Column က ထောင်လိုက်  
+
+MainAxis က အပေါ်အောက်။ y CrossAxis ကအလျားလိုက်။ x 
+
+ 
+
+Row က အလျားလိုက်။ 
+
+MainAxis က ထောင်လိုက်။y  CrossAxis က အလျားလိုက်။ x 
+
+ 
+
+Row အတွက် 
+
+* MainAxis က horizonatal axis - x 
+* CrosssAxis က Vertical axis - y 
+* Container Colum အောက်မှာ child နှစ်ခုထားမယ်။ 
+
