@@ -287,23 +287,116 @@ Container Widget က dynamic ဖြစ်လို့ const နဲ့ပေး�
 
 ---
 
-## Column and Padding, SizedBox
-### Column
-Column က ထောင်လိုက်  
+### Column and Padding, SizedBox
 
-MainAxis က အပေါ်အောက်။ y CrossAxis ကအလျားလိုက်။ x 
 
- 
+Column ခွဲမယ်ဆိုရင်
+* Container ထဲမှာ Child တစ်ခုကို Column အနေနဲ့ခွဲမယ်။ Column ထဲမှာ childeren တွေတန်းစီသွားမယ်၊
+* Children တစ်ခုချင်းဆီမှာက Row Column စိတ်ကြိုက်ခွဲမယ်။ flex လိုထပ်ခွဲတာမျိုး
+* Children ထဲမှာထပ်ပိုင်းချင်ရင် Column သုံး။
+* စာဖတ်ရန်
 
-Row က အလျားလိုက်။ 
+* painting library - Dart API (flutter.dev)
+* Layouts in Flutter | Flutter
+BoxDecoration class - painting library - Dart API (flutter.dev)
 
-MainAxis က ထောင်လိုက်။y  CrossAxis က အလျားလိုက်။ x 
+#### Column
+ Column က ထောင်လိုက် 
+* MainAxis က အပေါ်အောက်။ y 
+* CrossAxis ကအလျားလိုက်။ x
 
- 
+#### Row
+Row က အလျားလိုက်။
+* MainAxis က ထောင်လိုက်။ y  
+* CrossAxis က အလျားလိုက်။ x
 
-Row အတွက် 
-
-* MainAxis က horizonatal axis - x 
+Row အတွက်
+* MainAxis က horizonatal axis - x
 * CrosssAxis က Vertical axis - y 
-* Container Colum အောက်မှာ child နှစ်ခုထားမယ်။ 
 
+Container Colum အောက်မှာ child နှစ်ခုထပ်ထားမယ်။
+![alt text](./media/column.png)
+
+code sample
+```dart
+ body: Container(
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+          ),
+
+          //Column Start
+          child: Column(
+            children: [
+              //1st Container child
+              Container(
+                color: Colors.green,
+                child: const Text("First Column Child"),
+              ),
+
+              //2nd Container child
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blue,
+                ),
+                child: const Text(
+                  "Second Column Child",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              )
+            ],
+          ),
+
+        ),
+```
+
+ညှိမယ်ဆိုရင် အုပ်ထားတဲ့ Container ကို width မကန့်ထားဘူးဆိုရင် အပြည့်ယူတယ်။
+```dart 
+
+   child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+             ///
+            ],
+          ),
+```
+
+
+### SizedBox
+
+* SizedBox ကို Column တွေကြားထဲ Spacer အနေနဲ့သုံးလို့ရတယ်။
+* width ကိုလည်းအပြည့်ယူလို့ရတယ်။ 
+* Widget 2 ခုကြား Spacing သုံးချင်တယ်ဆိုရင် SizedBox သုံးတယ်
+* Size တစ်ခုဘဲသတ်မှတ်ပေးထားတဲ့ box ,element နှစ်ခုကြား spacing placeholder အနေနဲ့လည်းသုံးလို့ရတယ်။ 
+
+
+```dart
+  Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            ////
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          Container(
+            ///
+          )
+        ],
+    ),
+```
+
+`mainAxisAlignment: MainAxisAlignment.spaceAround,` ဆိုရင် elment တစ်ခုအနေနဲ့ယူပြီးsizeBox ကိုပါထည့်တွက်ပြီးခြားပေးသွားလိမ့်မယ်။
