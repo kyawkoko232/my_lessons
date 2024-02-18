@@ -400,3 +400,27 @@ code sample
 ```
 
 `mainAxisAlignment: MainAxisAlignment.spaceAround,` ဆိုရင် elment တစ်ခုအနေနဲ့ယူပြီးsizeBox ကိုပါထည့်တွက်ပြီးခြားပေးသွားလိမ့်မယ်။
+
+### Row
+
+code sample
+```dart
+   Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text("Freelancer"),
+
+          const SizedBox(
+            width: 10,
+          ),
+
+          Container(
+            height: 20,
+            width: 20,
+            color: Colors.amber,
+          ),
+        ],
+      ),
+```
+
+optional paramter တွေပေးလို့ရသေးတယ်။
