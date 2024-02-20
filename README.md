@@ -1,6 +1,38 @@
-# Basic App
+# Flutter Basic
 
-### Basic Scene
+## Note Table
+<a id="#table"></a>
+<table> 
+<tr>
+<td valign="top">
+      <ul>
+        <li>
+        <a href="#basic_scene">Basic Scene</a>
+        </li>
+            <ul>
+          <li><a href="#vscode_snippets">VS Code Snippets</a></li>
+            </ul>
+          </ul>  
+           <ul>
+        <li>
+        <a href="#scaffold">Widgets</a>
+        </li>
+            <ul>
+          <li><a href="#materialapp">MaterialApp Widget</a></li>
+          <li><a href="#scaffold_detail">Scaffold Widget</a></li>
+           <li><a href="#widget_text">Text Widget</a></li>
+           <li><a href="#widget_container">Container Widget</a></li>
+           <li><a href="#widget_column">Column</a></li>
+           <li><a href="#widget_row">Row</a></li>
+           <li><a href="#widget_sizedBox">SizedBox</a></li>
+            </ul>
+          </ul>  
+    </td>
+</tr>
+</table>
+
+<a id="basic_scene"></a>
+# Basic Scene
 အကုန်လုံးက widget တွေဘဲ 
 စစချင်းမှာ widget တွေခွဲမရေးဘဲ Scaffold ထဲထည့်ရေးလို့ရတယ်။ theme မှာ AppBar Theme ထည့်ပေးမှရမယ်။အရောင်က Scffold ထဲက 
 ```dart
@@ -84,10 +116,13 @@ MyApp Widget ထဲ MaterialApp>Scaffold>appBar
 * main component of widget
 * အောက် widget သေးသေးလေးအကုန်စုပြီး MyApp() ဆိုတဲ့ widget ဖြစ်လာတာ။
 
-### VsCode Snippet
+<a id="vscode_snippets"></a>
+### VsCode Snippets
+<a href="#table">Table</a>
+
 
 |        | About            | Snippet |
-|--------|------------------|---------|
+| ------ | ---------------- | ------- |
 | stless | stateless Widget |         |
 | stful  | stateful Widget  |         |
 
@@ -155,8 +190,13 @@ class TitleApp extends StatelessWidget {
 
 <br> 
 
-### Scaffold and Material App Widget
 
+<a id="scaffold"></a>
+# Widgets
+
+[Widgets Libraray](https://api.flutter.dev/flutter/widgets/widgets-library.html#classes)
+
+<a id="materialapp"></a>
 #### MaterialApp
 * material design/theme ကိုအသုံးပြုထား။
 * ဘာသာစကားတွေကိုသတ်မှတ်ပေးထားတယ်။
@@ -191,7 +231,7 @@ Theme ပြောင်းမယ်ဆိုရင်
   
   [Material App Class](https://api.flutter.dev/flutter/material/MaterialApp-class.html) 
 
-
+<a id="scaffold_detail"></a>
 #### Scaffold
 * Screen အတွက်လိုအပ်တဲ့ basic layout ကိုသတ်မှတ်ပေးတယ်။
 * Background ကာလာသတ်မှတ်ပေးလို့ရတယ်၊
@@ -219,8 +259,8 @@ Floating Action Button ဆိုပြီး debug console လေးဖော်
       ),
 ```
 
-
-### Text
+<a id="widget_text"></a>
+### Text Widget
 `Text()`  ထဲမှာဘဲလိုတာတွေရေးမယ်။ style ထဲမှာTextStyle widget ခေါ်ပြီးလိုတာတွေထပ်ထပ်ရေးနေမယ်။ color,fontSize, fontStyle အစရှိသဖြင့်
 ```dart
   child: Text(
@@ -246,9 +286,8 @@ Text(
 overflow: TextOverflow.ellipsis, 
 ), 
 ```
-
+<a id="widget_container"></a>
 ### Container
-
 
 * Center က ဘယ် widget  ပေါ်မဆို Parent warp လုပ်ထားလို့ရတယ်။ အခြား Center လုပ်လို့ရတဲ့ widget တွေလည်းရှိတယ်။ Center Widget ကို ဘယ် widget နဲ့မဆို wrap လုပ်လို့ရတယ်။ 
 * Text widget  မှာ paramter တွေထပ်ထည့်လို့ရတယ်။ 
@@ -285,11 +324,9 @@ Container Widget က dynamic ဖြစ်လို့ const နဲ့ပေး�
 </div>
 <br>
 
----
 
+<a id="basic_scene"></a>
 ### Column and Padding, SizedBox
-
-
 Column ခွဲမယ်ဆိုရင်
 * Container ထဲမှာ Child တစ်ခုကို Column အနေနဲ့ခွဲမယ်။ Column ထဲမှာ childeren တွေတန်းစီသွားမယ်၊
 * Children တစ်ခုချင်းဆီမှာက Row Column စိတ်ကြိုက်ခွဲမယ်။ flex လိုထပ်ခွဲတာမျိုး
@@ -300,19 +337,13 @@ Column ခွဲမယ်ဆိုရင်
 * Layouts in Flutter | Flutter
 BoxDecoration class - painting library - Dart API (flutter.dev)
 
+
+<a id="widget_column"></a>
 #### Column
+[Column Link](https://api.flutter.dev/flutter/widgets/Column-class.html)
  Column က ထောင်လိုက် 
 * MainAxis က အပေါ်အောက်။ y 
 * CrossAxis ကအလျားလိုက်။ x
-
-#### Row
-Row က အလျားလိုက်။
-* MainAxis က ထောင်လိုက်။ y  
-* CrossAxis က အလျားလိုက်။ x
-
-Row အတွက်
-* MainAxis က horizonatal axis - x
-* CrosssAxis က Vertical axis - y 
 
 Container Colum အောက်မှာ child နှစ်ခုထပ်ထားမယ်။
 ![alt text](./media/column.png)
@@ -370,8 +401,43 @@ code sample
 ```
 
 
-### SizedBox
+<a id="widget_row"></a>
+#### Row
+[Row Link](https://api.flutter.dev/flutter/widgets/Row-class.html)
+Row က အလျားလိုက်။ Row Widget က အထဲမှာ Scroll လုပ်လို့မရဘူး။ Scroll လုပ်ချင်ရင် Expanded Widget သုံးပေးရမယ်။
+* MainAxis က ထောင်လိုက်။ y  
+* CrossAxis က အလျားလိုက်။ x
 
+Row အတွက်
+* MainAxis က horizonatal axis - X
+* CrosssAxis က Vertical axis - Y
+
+
+code sample
+```dart
+   Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text("Freelancer"),
+
+          const SizedBox(
+            width: 10,
+          ),
+
+          Container(
+            height: 20,
+            width: 20,
+            color: Colors.amber,
+          ),
+        ],
+      ),
+```
+
+optional paramter တွေပေးလို့ရသေးတယ်။
+
+<a id="widget_sizedBox"></a>
+#### SizedBox
+[SizedBox](https://api.flutter.dev/flutter/widgets/SizedBox-class.html)
 * SizedBox ကို Column တွေကြားထဲ Spacer အနေနဲ့သုံးလို့ရတယ်။
 * width ကိုလည်းအပြည့်ယူလို့ရတယ်။ 
 * Widget 2 ခုကြား Spacing သုံးချင်တယ်ဆိုရင် SizedBox သုံးတယ်
@@ -401,26 +467,5 @@ code sample
 
 `mainAxisAlignment: MainAxisAlignment.spaceAround,` ဆိုရင် elment တစ်ခုအနေနဲ့ယူပြီးsizeBox ကိုပါထည့်တွက်ပြီးခြားပေးသွားလိမ့်မယ်။
 
-### Row
 
-code sample
-```dart
-   Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text("Freelancer"),
 
-          const SizedBox(
-            width: 10,
-          ),
-
-          Container(
-            height: 20,
-            width: 20,
-            color: Colors.amber,
-          ),
-        ],
-      ),
-```
-
-optional paramter တွေပေးလို့ရသေးတယ်။
