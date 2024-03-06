@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,20 +24,39 @@ class MyApp extends StatelessWidget {
           title: const Text("Flutter Basic"),
         ),
         body: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 228, 152, 146),
-            borderRadius: BorderRadius.circular(20),
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 228, 152, 146),
+            // borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(child: Text("Kyaw Ko Ko testing flutter ")),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.blue,
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.amber,
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                ],
+              ),
               Container(
                 color: Colors.green,
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
-                  
                   child: Text("First Column Child"),
                 ),
               ),
