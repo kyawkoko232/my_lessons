@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Flexible(child: Text("Kyaw Ko Ko testing flutter ")),
+                  const Flexible(child: Text("Kyaw Ko Ko testing flutter ")),
                   Container(
                     height: 20,
                     width: 20,
